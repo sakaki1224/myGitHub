@@ -11,7 +11,6 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import entity.Type;
-import entity.Type;;
 
 @Repository
 public interface TypeDao {

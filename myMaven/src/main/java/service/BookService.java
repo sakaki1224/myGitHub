@@ -1,7 +1,6 @@
 package service;
 
 import java.util.List;
-
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -9,19 +8,19 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
-import entity.Type;
+import entity.Book;
 
-public interface TypeService {
+public interface BookService {
 	
-	public List<Type> getWhere(String where) ;
+	public List<Book> getWhere(String where) ;
 	
-	public List<Type> getAll() ;
+	public List<Book> getAll() ;
 	
-	public Type getByid(int id) ;
+	public Book getByid(int id) ;
 	
-	public Integer insert(Type t) ;
+	public Integer insert(Book t) ;
 
-	public Integer update(Type t) ;
+	public Integer update(Book t) ;
 
 	public int delete(int id) ;
 }

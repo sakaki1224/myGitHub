@@ -10,7 +10,8 @@ import service.TypeService;
 
 
 @Controller
-public class testController {
+@RequestMapping("Type")
+public class TypeController {
 @Autowired
 TypeService service;
 
@@ -19,7 +20,7 @@ public String index(String name,ModelMap m) {
 	String where="";
 	if(name!=null&&name.length()>0) where=" where name like '%"+name+"%'";
 	m.put("list",service.getWhere(where));
-	return "index";
+	return "Type/index";
 }
 
 @RequestMapping("delete")
@@ -29,7 +30,7 @@ public String delete(int id,ModelMap m) {
 }
 @RequestMapping("add")
 public String add(ModelMap m) {
-	return "edit";
+	return "Type/edit";
 }
 @RequestMapping("edit")
 public String edit(int id,ModelMap m) {

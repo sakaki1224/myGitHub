@@ -8,7 +8,7 @@ import entity.Type;
 import service.TypeService;
 
 @Service
-public class ServiceImpl implements TypeService {
+public class TypeServiceImpl implements TypeService {
 
 	@Autowired
 	TypeDao dao;
@@ -16,15 +16,17 @@ public class ServiceImpl implements TypeService {
 	public List<Type> getWhere(String where) {
 		return dao.getWhere(where);
 	}
-
-	public Integer insert(Type t) {
-		return dao.insert(t);
+	public List<Type> getAll() {
+		return dao.getAll();
 	}
-
+	
 	public Type getByid(int id) {
 		return dao.getByid(id);
 	}
 
+	public Integer insert(Type t) {
+		return dao.insert(t);
+	}
 	public Integer update(Type t) {
 		return dao.update(t);
 	}
@@ -32,6 +34,7 @@ public class ServiceImpl implements TypeService {
 	public int delete(int id) {
 		return dao.delete(id);
 	}
+
 
 
 
