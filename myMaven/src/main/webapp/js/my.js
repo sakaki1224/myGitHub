@@ -48,6 +48,18 @@ function getlist(url,data,selector,def_id){
 			layui.form.render('select');
 		},"json");
 }
+function getlist1(url,data,selector,def_id){
+	$.post(url,data, function(json) {
+		var s=$(selector).empty();
+		s.append($("<option value=''></option>"))
+		for(var i=0;i<json.list.length;i++){
+			var ss="";
+			if(json.list[i].id==def_id) ss="selected='selected'";
+			s.append($("<option value='"+json.list[i].id+"' "+ss+" >"+json.list[i].name+"</option>"))
+		}
+		layui.form.render('select');
+	},"json");
+}
 
 function getarray(url,data,selector,def_index){
 	$.post(url,data, function(json) {

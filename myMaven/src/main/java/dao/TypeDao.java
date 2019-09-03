@@ -16,12 +16,14 @@ import utils.ReturnInfo;
 @Repository
 public interface TypeDao {
 
+@Select("select count(1) from Type ${where}")
+public int getCount(@Param("where") String where) ;
 	
-@Select("select Type.* from Type ${where}")
-public ReturnInfo getWhere(@Param("where") String where) ;
+@Select("select Type.* from Type ${where} ${limit}")
+public List<Type> getWhere(@Param("where") String where,@Param("limit") String limit) ;
 
 @Select("select Type.* from Type ")
-public ReturnInfo getAll() ;
+public List<Type> getAll() ;
 
 @Select("select Type.* from Type where id=#{id}")
 public Type getByid(int id) ;

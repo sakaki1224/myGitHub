@@ -42,11 +42,6 @@
      <url-pattern>*.js</url-pattern>  
 	</servlet-mapping> 
 	
-	<servlet-mapping>  
-     <servlet-name>default</servlet-name>  
-     <url-pattern>layui.*</url-pattern>  
-	</servlet-mapping> 
-  
   <servlet>
     <servlet-name>dispatcherServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

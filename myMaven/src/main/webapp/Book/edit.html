@@ -30,7 +30,20 @@
       <input type="text" name="name"  autocomplete="off" placeholder="请输入标题" class="layui-input">
     </div>
   </div>
-  
+  <div class="layui-form-item">
+<label class= "layui-form-label">性别</label>
+<div class="layui-input-block">
+<select name="sex">
+</select>
+</div>
+</div>
+<div class="layui-form-item">
+<label class="layui-form-label ">类型</label>
+<div class="layui-input-block">
+<select name="typeid" >
+</select>
+</div>
+</div>
   
    <div class="layui-form-item">
     <div class="layui-input-block">
@@ -45,7 +58,7 @@ var id=getQueryString("id");
 layui.use(['form',], function(){
 	  var form = layui.form;
 	  form.on('submit(demo1)', function(data){
-		  var s="Type";
+		  var s="Book";
 		  if(id!=null)
 			  {
 			  s="Type/"+id;
@@ -60,21 +73,19 @@ layui.use(['form',], function(){
 		  });
 });
 
-
-
-//var id="${param.id}";
 function init(){
-	$.post("Type/"+id,{_method:"GET"}, function(json) {
+	$.post("Book/"+id,{_method:"GET"}, function(json) {
 		render('myform', json);
-		
+		getarray("Book/sexs",{_method:"GET"},"[name=sex]",json.sex);
+		getlist1("Type",{_method:"GET"},"[name=typeid]",json.typeid);
 	},"json");
 	
 }
-if(id.length>0){
+if(id!=null&&id.length>0){
 	init();
 }else{
-	getarray("Book/index",{cmd:"getSexs"},"[name=sex]",0);
-	getlist("Book/index",{cmd:"getTypes"},"[name=typeid]",0);
+	getarray("Book/sexs",{_method:"GET"},"[name=sex]",0);
+	getlist1("Type",{_method:"GET"},"[name=typeid]",0);
 }
 
 </script>

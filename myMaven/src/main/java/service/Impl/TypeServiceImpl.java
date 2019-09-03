@@ -15,10 +15,10 @@ public class TypeServiceImpl implements TypeService {
 	@Autowired
 	TypeDao dao;
 	
-	public ReturnInfo getWhere(String where) {
-		return dao.getWhere(where);
+	public List<Type> getWhere(String where,String limit) {
+		return dao.getWhere(where, limit);
 	}
-	public ReturnInfo getAll() {
+	public List<Type> getAll() {
 		return dao.getAll();
 	}
 	
@@ -35,6 +35,10 @@ public class TypeServiceImpl implements TypeService {
 
 	public int delete(int id) {
 		return dao.delete(id);
+	}
+	public ReturnInfo getWhere(String where, Integer page, Integer limit) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

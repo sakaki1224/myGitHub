@@ -14,9 +14,9 @@ import utils.ReturnInfo;
 
 public interface TypeService {
 	
-	public ReturnInfo getWhere(String where) ;
+	public ReturnInfo getWhere(String where,Integer page,Integer limit) ;
 	
-	public ReturnInfo getAll() ;
+	public List<Type> getAll() ;
 	
 	public Type getByid(int id) ;
 	

@@ -46,7 +46,7 @@
 			table.render({
 				elem : '#demo',
 				height : 462,
-				url : 'Type' //数据接口
+				url : 'Book' //数据接口
 				,
 				method:'post'
 				,
@@ -64,9 +64,17 @@
 					fixed : 'right'
 				}, {
 					field : 'name',
-					title : '用户名',
+					title : '书名',
 					width : 280
-				}, {
+				},{
+					field : 'sexname',
+					title :'性别',
+					width : 180
+					},{
+					field : 'typename' ,
+					title :'类型',
+					width : 180
+					}, {
 					fixed : 'right',
 					title : '操作',
 					toolbar : '#barDemo',
@@ -94,14 +102,14 @@
 				if (obj.event === 'del') { ///lay-event 属性
 					
 					myconfirm("刪除？",function(){
-						$.post("Type/"+data.id, {_method:"DELETE"}, 
+						$.post("Book/"+data.id, {_method:"DELETE"}, 
 								function(json) {
 							reload('demo');
 							layer.close(layer.index);
 								}, "json");
 					});
 				}else{
-					openFrame('Type/edit.html?id='+data.id,"修改",['340px','40%']);
+					openFrame('Book/edit.html?id='+data.id,"修改",['340px','60%']);
 				}
 			});
 
@@ -110,7 +118,7 @@
 					var txt = $(event.target).prev().find("input").val();
 					reload('demo',{name : txt});
 				} else {
-					openFrame("Type/edit.html","新增",['340px','40%']);
+					openFrame("Book/edit.html","新增",['340px','60%']);
 				}
 			});
 

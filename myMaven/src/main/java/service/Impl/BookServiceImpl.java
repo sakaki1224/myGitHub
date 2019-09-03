@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import dao.BookDao;
 import entity.Book;
 import service.BookService;
+import utils.ReturnInfo;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -13,8 +14,17 @@ public class BookServiceImpl implements BookService {
 	@Autowired
 	BookDao dao;
 	
-	public List<Book> getWhere(String where) {
-		return dao.getWhere(where);
+	public ReturnInfo getWhere(String where,Integer page,Integer limit) {
+		boolean canpage=page!=null;
+		ReturnInfo info = new ReturnInfo();
+		info. setList (dao.getWhere(where,ReturnInfo.getLimit(page,limit)));
+		if(canpage)info.setCount(dao.getCount(where));
+		return info;
+		}
+
+	
+	public List<Book> getWhere(String where,String limit) {
+		return dao.getWhere(where,limit);
 	}
 	public List<Book> getAll() {
 		return dao.getAll();
@@ -34,5 +44,12 @@ public class BookServiceImpl implements BookService {
 	public int delete(int id) {
 		return dao.delete(id);
 	}
+
+
+	public List<Book> getWhere(String where) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	
 	}

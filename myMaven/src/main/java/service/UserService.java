@@ -7,22 +7,22 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
+import entity.User;
 
-import entity.Book;
-import utils.ReturnInfo;
 
-public interface BookService {
+public interface UserService {
 	
-	public ReturnInfo getWhere(String where,Integer page,Integer limit) ;
+	public User login(User u) ;
 	
-	public List<Book> getWhere(String where) ;
+	public List<User> getWhere(String where) ;
 	
-	public List<Book> getAll() ;
+	public List<User> getAll() ;
 	
-	public Book getByid(int id) ;
+	public User getByid(int id) ;
 	
-	public Integer insert(Book t) ;
+	public Integer insert(User t) ;
 
-	public Integer update(Book t) ;
+	public Integer update(User t) ;
+
 	public int delete(int id) ;
 }
