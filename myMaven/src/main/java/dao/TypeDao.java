@@ -11,16 +11,17 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import entity.Type;
+import utils.ReturnInfo;
 
 @Repository
 public interface TypeDao {
 
 	
 @Select("select Type.* from Type ${where}")
-public List<Type> getWhere(@Param("where") String where) ;
+public ReturnInfo getWhere(@Param("where") String where) ;
 
 @Select("select Type.* from Type ")
-public List<Type> getAll() ;
+public ReturnInfo getAll() ;
 
 @Select("select Type.* from Type where id=#{id}")
 public Type getByid(int id) ;

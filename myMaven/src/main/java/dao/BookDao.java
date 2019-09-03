@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import entity.Book;
+import utils.ReturnInfo;
 
 @Repository
 public interface BookDao {

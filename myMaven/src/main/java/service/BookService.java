@@ -21,6 +21,5 @@ public interface BookService {
 	public Integer insert(Book t) ;
 
 	public Integer update(Book t) ;
-
 	public int delete(int id) ;
 }

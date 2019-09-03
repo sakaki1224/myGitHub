@@ -10,12 +10,13 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import entity.Type;
+import utils.ReturnInfo;
 
 public interface TypeService {
 	
-	public List<Type> getWhere(String where) ;
+	public ReturnInfo getWhere(String where) ;
 	
-	public List<Type> getAll() ;
+	public ReturnInfo getAll() ;
 	
 	public Type getByid(int id) ;
 	
